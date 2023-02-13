@@ -2,13 +2,13 @@ package pk;
 
 import java.util.logging.Logger;
 import java.util.*;
-class create{
+class Create{
     long number;
     String name;
     String email;
-    create next;
+    Create next;
 
-    create(String name, long number, String email){
+    Create(String name, long number, String email){
         this.name = name;
         this.email = email;
         this.number = number;
@@ -17,14 +17,14 @@ class create{
 
 class Contactlist{
     private static final Logger LOGGER =  Logger.getLogger("InfoLogging");
-    create head;
+    Create head;
     public void add(String name, long number, String email){
-        create newContact = new create(name,number,email);
+        Create newContact = new Create(name,number,email);
         if(this.head == null){
             this.head = newContact;
         }
         else{
-            create current = this.head;
+            Create current = this.head;
             while(current.next!=null){
                 current = current.next;
             }
@@ -32,8 +32,8 @@ class Contactlist{
         }
     }
     public void remove(){
-        create current = this.head;
-        create previous = current;
+        Create current = this.head;
+        Create previous = current;
         while(current.next!=null){
             previous = current;
             current = current.next;
@@ -45,8 +45,8 @@ class Contactlist{
             this.head = this.head.next;
         }
         else{
-            create current = this.head;
-            create previous = current;
+            Create current = this.head;
+            Create previous = current;
             while(current.number!=number){
                 if(current.next!=null){
                     previous = current;
@@ -63,8 +63,8 @@ class Contactlist{
             this.head = this.head.next;
         }
         else{
-            create current = this.head;
-            create previous = current;
+            Create current = this.head;
+            Create previous = current;
             while(!current.name.equals(number)){
                 if(current.next!=null){
                     previous = current;
@@ -75,7 +75,7 @@ class Contactlist{
         }
     }
     public void search(String name){
-        create current = this.head;
+        Create current = this.head;
         if(this.head != null){
             while(current!=null){
                 if(current.name.equalsIgnoreCase(name)){
@@ -88,7 +88,7 @@ class Contactlist{
     }
 
     public void print(){
-        create current = this.head;
+        Create current = this.head;
         StringBuilder s = new StringBuilder("");
         while(current!=null){
             s.append("\n"+current.name+" -- "+current.email+" -- "+current.number+"\n");
