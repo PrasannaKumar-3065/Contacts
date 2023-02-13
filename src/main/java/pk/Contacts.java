@@ -15,7 +15,7 @@ class create{
     }
 }
 
-class contactList{
+class contactlist{
     private static final Logger LOGGER =  Logger.getLogger("InfoLogging");
     create head;
     public void add(String name, long number, String email){
@@ -103,7 +103,7 @@ class contactList{
 public class Contacts {
     private static final Logger LOGGER =  Logger.getLogger("InfoLogging");
     public static void main(String[] args){
-        contactList l =new contactList();
+        contactlist l =new contactlist();
         Scanner sc = new Scanner(System.in);
         int n = 0;
         do{
