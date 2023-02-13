@@ -74,6 +74,19 @@ class contactList{
             previous.next = current.next;
         }
     }
+    public void search(String name){
+        create current = this.head;
+        if(this.head != null){
+            while(current!=null){
+                if(current.name.equalsIgnoreCase(name)){
+                    String s = current.name+", "+current.number+", "+current.email;
+                    LOGGER.info(s);
+                }
+                current = current.next;
+            }
+        }
+    }
+
     public void print(){
         create current = this.head;
         StringBuilder s = new StringBuilder("");
@@ -94,7 +107,7 @@ public class Contacts {
         Scanner sc = new Scanner(System.in);
         int n = 0;
         do{
-            LOGGER.info("1.Add Contact 2.Remove Contact 3.view 4.Exit");
+            LOGGER.info("1.Add Contact 2.Search 3.Remove Contact 4.view 5.Exit");
             int ch = sc.nextInt();
             if(ch == 1){
                 LOGGER.info("Enter number: ");
@@ -106,6 +119,11 @@ public class Contacts {
                 l.add(name, number, email);
             }
             else if(ch == 2){
+                LOGGER.info("Enter name");
+                String ch1 = sc.next();
+                l.search(ch1);
+            }
+            else if(ch == 3){
                 LOGGER.info("1.Remove last 2.Remove number 3.Remove name");
                 int ch1 = sc.nextInt();
                 if(ch1 == 1){
@@ -123,10 +141,10 @@ public class Contacts {
                 }
                 
             }
-            else if(ch == 3){
+            else if(ch == 4){
                 l.print();
             }
-            else if(ch == 4){
+            else if(ch == 5){
                 n = 1;
             }
         }while(n == 0);
